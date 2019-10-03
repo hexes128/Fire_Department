@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+ <androidx.cardview.widget.CardView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_margin="10dp"
+     app:cardCornerRadius="10dp"
+     app:cardElevation="5dp"
+     app:contentPadding="5dp">
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="horizontal">
+         <TextView
+             android:id="@+id/item_id"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+            />
+
+         <CheckedTextView
+             android:id="@+id/item_name"
+             android:gravity="center"
+             android:layout_weight="1"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:textSize="15dp"
+
+             android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+             />
+
+
+
+
+     </LinearLayout>
+
+
+ </androidx.cardview.widget.CardView>
+
+</LinearLayout>
