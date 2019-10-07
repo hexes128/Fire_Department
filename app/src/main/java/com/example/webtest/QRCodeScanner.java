@@ -50,7 +50,6 @@ public class QRCodeScanner extends AppCompatActivity {
         gv = (Global) getApplicationContext();
 
 
-
         surfaceView = findViewById(R.id.surfaceView);
         textView = findViewById(R.id.textView);
 
@@ -96,29 +95,28 @@ public class QRCodeScanner extends AppCompatActivity {
                 if (qrCodes.size() != 0) {
 
 
+                    String id = qrCodes.valueAt(0).displayValue;
 
-             String id=       qrCodes.valueAt(0).displayValue;
+                    for (int i = 0; i < gv.itemDetaiArray.length(); i++) {
+                        try {
 
-                for(int i=0;i<gv.itemDetaiArray.length();i++){
-                    try {
-
-                        Log.e("掃到的資料", qrCodes.valueAt(0).displayValue);
-                        Log.e("list的資料", gv.itemDetaiArray.getJSONObject(i).getString("item_id").trim());
-                        if(id.trim().equals(gv.itemDetaiArray.getJSONObject(i).getString("item_id").trim())){
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    textView.setText(qrCodes.valueAt(0).displayValue);
-                                }
-                            });
+                            Log.e("掃到的資料", qrCodes.valueAt(0).displayValue);
+                        //    Log.e("list的資料", gv.itemDetaiArray.getJSONObject(i).getString("item_id").trim());
+                            if (id.trim().equals(gv.itemDetaiArray.getJSONObject(i).getString("item_id").trim())) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        textView.setText(qrCodes.valueAt(0).displayValue);
+                                    }
+                                });
 
                                 setVibrate(100); // 震動 0.1 秒
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
 
-                }
+                    }
 //                    textView.post(new Runnable() {
 //                        @Override
 //                        public void run() {
